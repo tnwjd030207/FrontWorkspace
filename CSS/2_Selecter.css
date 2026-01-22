@@ -128,3 +128,10 @@ input[type=checkbox]:checked+label{
 input:focus{
     background-color: pink;
 }
+
+button:enabled{
+    background-color: blue
+}
+button:disabled{
+    background-color: yellow;
+}
