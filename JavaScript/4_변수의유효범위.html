@@ -25,12 +25,59 @@
             console.log(window.a); //100
             //this == window
             //일반함수에서 this는 window로 가리킨다
+
+            //var변수의 단점
+            var a = true; //변수 중복선언 가능
+            b = 123; //var없이 변수 선언 가능. 단, 항상 전역변수(window) 등록
+            console.log(window.b);
         }
+        /*
+            scope : 유효범위
+            java의 변수 scope는 block scope.
+            javascript의 변수(var) scope는 function scope를 가지고 있다.
+            javascript의 변수 중 const, let은 자바와 동일한 block scope를 가지고 있음.
+        */
+
+        function test2(){
+            var x = 10;
+            if(true){
+                //함수 내부에 선언한 변수는 어떤 위치든 접근 가능
+                var x2 = 10;
+            for(var i=0; i<10; i++){
+            }}console.log("i :"+i)
+
+
+            console.log(x); //10
+            console.log(x2); //10
+
+        }
+       // console.log(x); //10? null?
 
     </script>
 
     <script>
-        console.log(a);
+       // console.log(a);
+    </script>
+
+    <h1>Hoisting</h1>
+    <script>
+        //var b; var키워드 변수는 hoisting 된다
+        //function foo; g함수는 호이스팅된다
+        console.log(b);
+        var b = "안녕";
+
+        //함수도 hoisting 된다
+        //함수 선언식
+        function foo(){
+            console.log("foo");
+        }
+
+        //함수 표현식으로 생성한 함수는 호이스팅되지 않는다
+        //bar() : 함수표현식으로 작성한 함수는 호이스팅 불가
+        var bar = function(){
+            console.log('bar');
+        };
+        bar();
     </script>
 </body>
 </html>
