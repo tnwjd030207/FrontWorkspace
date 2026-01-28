@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>실습문제 1</title>
+<style type="text/css">
+#area {
+	width: 400px;
+	height: 150px;
+	background: #ffff99;
+	border: 1px solid #6666ff;
+}
+</style>
+</head>
+<body>
+	<h2>@실습문제 1</h2>
+	<label>구매자 : </label>
+	<input type="text" placeholder="구매자의 이름을 입력하세요.">
+	<br>
+	<br>
+	<label>상품명 : </label>
+	<input type="text" id="pname" placeholder="구매 상품명을 입력하세요">
+	<br>
+	<br>
+	<label>가격 : </label>
+	<input type="text" name="price" placeholder="구매 가격을 입력하세요.">만원
+	<br>
+	<br>
+	<button onclick="printValue();">입력값 출력하기</button>
+	<br>
+	<br>
+	<div id="area"></div>
+	<script type="text/javascript">
+    function printValue() {
+        // 1. 선택자 끝에 대괄호 ']' 추가하여 닫아주기
+        var customer = document.querySelector("input[placeholder='구매자의 이름을 입력하세요.']");
+        
+        var pname = document.querySelector("#pname");
+        
+        // 2. 속성 선택자에는 따옴표('')를 쓰는 것이 안전함
+        var price = document.querySelector("input[name='price']");
+
+		//내가 선택한 요소의 입력값을 얻어오려면? value
+        // 입력된 값을 문자열로 조합
+        var result = "구입자 : " + customer.value + "님<br>"
+                   + "구입상품 : " + pname.value + "<br>"
+                   + "구매가격 : " + price.value + "만원";
+
+        // 3. 변수명 오타 수정 (arar -> area)
+        // 4. 대문자 주의 (innerHtml -> innerHTML)
+        var area = document.getElementById("area"); 
+        area.innerHTML = result;
+    }
+</script>
+</body>
+</html> 
